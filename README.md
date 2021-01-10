@@ -1,6 +1,35 @@
-# Getting Started with Create React App
+# Apollo v3 Workshop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is scaffolded with CRA Typescript.
+
+## Observe Scenarios
+
+Open Network panel in broser’s inspector mode for the following scenarios:
+
+1. Country List page
+
+- Open this page by navigating to root url
+- Click on one of the listed country
+- Return to previous page
+- Outcome → 1 network request
+- Continue with testing:
+  - Search via input component by country code (e.g. `TV`)
+  - Outcome → no new network request will be made since we normalized the cache and made reference to Country query field
+
+2. Country page
+
+- Open country page (e.g. http://localhost:3000/countries/ee)
+- Search via input component by country code (e.g. `TV`)
+- Outcome → 2 network request (`COUNTRY` query)
+- Continue with testing:
+  - Click back button which will redirect you to the country list page
+  - Outcome → anoter network request will be triggered (`COUNTRIES` query)
+
+Other scenarios (local cache):
+
+- Theme switcher and persistence on page refresh
+- `nameWithEmoji` response on Country page
+- `sortedCountries` response on CountryList page
 
 ## Available Scripts
 
@@ -18,29 +47,3 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
