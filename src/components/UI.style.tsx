@@ -1,6 +1,7 @@
+/** @jsxRuntime classic */
 /** @jsx jsx */
 import { css } from '@emotion/react';
-import { Theme } from '../types';
+// import { Theme } from '../types';
 
 export const themeButtonStyles = (theme?: any) => css`
   outline: none;

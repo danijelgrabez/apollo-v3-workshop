@@ -35,16 +35,16 @@ const CountryList: React.FC<RouteProps> = () => {
     }
   };
 
-  if (loading && !data) return <h1>Loading countries...</h1>;
-  if (error) return <h1>Error :(</h1>;
+  if (loading && !data) return <h1 data-testid="loading">Loading countries...</h1>;
+  if (error) return <h1 data-testid="error">Error :(</h1>;
 
   const { /*countries, */ sortedCountries } = data;
 
   return (
     <>
       <header css={headerStyle}>
-        <h1>Countries</h1>
-        <button onClick={handleSort} css={buttonStyle}>
+        <h1 data-testid="page-title">Countries</h1>
+        <button onClick={handleSort} css={buttonStyle} data-testid="sort">
           Sort {sortOrder() === 'ASC' ? '↓' : '↑'}
         </button>
       </header>

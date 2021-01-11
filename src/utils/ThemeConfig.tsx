@@ -58,6 +58,7 @@ const ThemeConfig: React.FC = ({ children }: { children?: ReactNode }) => {
       />
       <button
         css={themeButtonStyles}
+        data-testid="toggle-theme"
         onClick={() => {
           if (currentTheme === 'LIGHT') {
             setTheme('DARK');

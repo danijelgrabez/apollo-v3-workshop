@@ -7,12 +7,17 @@ import { listItemMetaStyles, listItemStyles } from './UI.style';
 
 interface ListItemProps {
   children?: ReactNode;
+  dataTestId: string;
   cardLayout?: boolean;
 }
-const ListItem: React.FC<ListItemProps> = ({ children, cardLayout = false }) => {
+const ListItem: React.FC<ListItemProps> = ({ children, dataTestId, cardLayout = false }) => {
   const theme = useTheme();
 
-  return <li css={listItemStyles({ theme, cardLayout })}>{children}</li>;
+  return (
+    <li css={listItemStyles({ theme, cardLayout })} data-testid={dataTestId}>
+      {children}
+    </li>
+  );
 };
 
 const CountryItem = ({
@@ -23,7 +28,7 @@ const CountryItem = ({
   cardLayout?: boolean;
 }) => {
   return (
-    <ListItem cardLayout={cardLayout}>
+    <ListItem cardLayout={cardLayout} dataTestId={`country-item-${countryData.code}`}>
       <Link to={`/countries/${countryData.code}`}>
         {cardLayout ? `${countryData.emoji} ${countryData.name}` : countryData.name}
         {cardLayout && (

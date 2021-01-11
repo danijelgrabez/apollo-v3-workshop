@@ -37,3 +37,9 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+/**
+ * TODO:
+ * 1. Test route change (e.g. Search country, click on result; click on country item from the list, click on back button)
+ * 2. Update SearchComponent to change hook via location change and improve test
+ */
