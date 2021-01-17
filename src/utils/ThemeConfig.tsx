@@ -4,7 +4,7 @@ import { setTheme } from '../cache';
 import { useQuery, gql } from '@apollo/client';
 import { Theme } from '../types';
 import { themeButtonStyles } from '../components/UI.style';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 const LIGHT = {
   primary: 'hotpink',
@@ -36,6 +36,14 @@ const ThemeConfig: React.FC = ({ children }: { children?: ReactNode }) => {
   const {
     data: { currentTheme },
   } = useQuery(CURRENT_THEME);
+
+  const lsTheme = localStorage.getItem('theme');
+
+  useEffect(() => {
+    if (typeof lsTheme !== 'string') {
+      localStorage.setItem('theme', 'LIGHT');
+    }
+  });
 
   const theme: Theme = currentTheme === 'LIGHT' ? LIGHT : DARK;
 
