@@ -16,7 +16,7 @@ export const SEARCH_COUNTRY = gql`
 `;
 
 const SearchCountry: React.FC = () => {
-  // const location = useLocation();
+  // const location = useLocation(); // note: useLocation() is buggy for testing at the moment
   const [countryId, setCountryId] = useState('');
   // useEffect(() => {
   //   setCountryId('');
